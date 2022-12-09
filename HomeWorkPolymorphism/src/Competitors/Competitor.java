@@ -3,7 +3,7 @@ package Competitors;
 import Barrier.Barrier;
 
 public interface Competitor {
-    public void run();
-    public void jump();
+    public boolean run();
+    public boolean jump();
     public void overcome(Barrier barrier);
 }
