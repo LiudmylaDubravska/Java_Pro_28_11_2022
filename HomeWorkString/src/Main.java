@@ -50,31 +50,34 @@ public class Main {
         int randomNum = rand.nextInt(words.length);
         String computerWord = words[randomNum-1];
         boolean isWon = false;
-        System.out.println(words[randomNum-1]);
-     //   System.out.println(words.length);
-        while(isWon == false) {
+     //   System.out.println(words[randomNum-1]);
+        int i = 0;
+        int userWordLength=0;
+        int compWordLength=computerWord.length();
+        do{
             Scanner sc = new Scanner(System.in);
             String userWord = sc.next();
+            userWordLength = userWord.length();
             String answerWord = "";
-            // String answerWord = "***************";
-           // System.out.println(userWord);
-            for (int i = 0; i < computerWord.length(); i++) {
-                if (computerWord.charAt(i) == userWord.charAt(i)) {
-                    answerWord = answerWord + computerWord.charAt(i);
-                } else answerWord = answerWord + "#";
+            int length = 0;
+            if(computerWord.length() >= userWord.length()){
+                length = userWord.length();
+            }else length = computerWord.length();
+            for (i = 0; i < length; i++) {
+                   if (computerWord.charAt(i) == userWord.charAt(i)) {
+                       answerWord = answerWord + computerWord.charAt(i);
+                   } else answerWord = answerWord + "#";
             }
-            if (answerWord.equals(userWord)) {
+
+            if (answerWord.equals(computerWord)) {
                 System.out.println("You won!");
                 isWon = true;
-            } else for (int i = 15 - answerWord.length(); i < 15; i++) {
+            } else for (int j = answerWord.length(); j < 15; j++) {
                 answerWord = answerWord + "#";
             }
             System.out.println(answerWord);
-        }
-      /*  System.out.println(answerWord);
-        if ((words[randomNum-1]).equals(userWord)){
-            System.out.println("You won!");
-        }*/
+
+        }while(isWon == false && i <= userWordLength && i <= compWordLength);
 
     }
 }
