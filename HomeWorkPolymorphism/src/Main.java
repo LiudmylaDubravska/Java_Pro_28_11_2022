@@ -25,29 +25,6 @@ public class Main {
         summaryArea(figures);
         System.out.println("-------------------------------------------------------");
 
-     /*   Obstacle[] barriers = {new RunningTrack(5000),
-                new Wall(3)
-        };
-
-        Competitor[] competitors = {new Cat(4000, 4, new RunningTrack(5000), new Wall(3)),
-                new Human(5000, 3, new RunningTrack(5000), new Wall(3)),
-                new Robot(10, 1, new RunningTrack(5000), new Wall(3))};
-
-        boolean pass = true;
-        for(int i =0; i < competitors.length; i++){
-            System.out.println();
-            pass = competitors[i].run();
-            barriers[0].overcome();
-            if(pass){
-                competitors[i].jump();
-                barriers[1].overcome();
-                System.out.println();
-            }else {
-                System.out.println();
-                System.out.println("Competitor lost!!! " );
-            }
-
-        }*/
         Human human = new Human(2000, 2, "Oleh");
         Cat cat = new Cat(1000, 3, "Barsik");
         Robot robot = new Robot(3,1, "K325");
