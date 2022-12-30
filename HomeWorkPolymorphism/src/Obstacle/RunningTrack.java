@@ -7,11 +7,14 @@ public class RunningTrack extends Obstacle{
         super(0, length);
     }
     @Override
-    public void overcome(Competitor competitor) {
+    public boolean overcome(Competitor competitor) {
+        boolean isLost=false;
         if(competitor.getMaxLength() >= length){
             competitor.run();
         } else{
             competitor.lostRun();
+            isLost = true;
         }
+        return isLost;
     }
 }

@@ -52,14 +52,16 @@ public class Main {
         Cat cat = new Cat(1000, 3, "Barsik");
         Robot robot = new Robot(3,1, "K325");
         Wall wall = new Wall(2);
-        RunningTrack runningTrack = new RunningTrack(1000);
+        RunningTrack runningTrack = new RunningTrack(1001);
         Obstacle obstacles[] = new Obstacle[]{wall, runningTrack};
         Competitor competitors[] = new Competitor[]{human, cat, robot};
 
         boolean pass = true;
        for(Competitor competitor : competitors){
            for(Obstacle obstacle : obstacles){
-               obstacle.overcome(competitor);
+               if(obstacle.overcome(competitor)){
+                   break;
+               };
            }
        }
         System.out.println("-------------------------------------------------------");

@@ -9,11 +9,14 @@ public class Wall extends Obstacle{
     }
 
     @Override
-    public void overcome(Competitor competitor) {
+    public boolean overcome(Competitor competitor) {
+        boolean isLost=false;
         if(competitor.getMaxHeight() >= height){
             competitor.jump();
         }else{
             competitor.lostJump();
+            isLost=true;
         }
+        return isLost;
     }
 }
