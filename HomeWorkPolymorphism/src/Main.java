@@ -1,6 +1,6 @@
-import Barrier.Barrier;
-import Barrier.RunningTrack;
-import Barrier.Wall;
+import Obstacle.Obstacle;
+import Obstacle.RunningTrack;
+import Obstacle.Wall;
 import Competitors.Cat;
 import Competitors.Competitor;
 import Competitors.Human;
@@ -25,7 +25,7 @@ public class Main {
         summaryArea(figures);
         System.out.println("-------------------------------------------------------");
 
-        Barrier[] barriers = {new RunningTrack(5000),
+     /*   Obstacle[] barriers = {new RunningTrack(5000),
                 new Wall(3)
         };
 
@@ -47,8 +47,21 @@ public class Main {
                 System.out.println("Competitor lost!!! " );
             }
 
-        }
+        }*/
+        Human human = new Human(2000, 2, "Oleh");
+        Cat cat = new Cat(1000, 3, "Barsik");
+        Robot robot = new Robot(3,1, "K325");
+        Wall wall = new Wall(2);
+        RunningTrack runningTrack = new RunningTrack(1000);
+        Obstacle obstacles[] = new Obstacle[]{wall, runningTrack};
+        Competitor competitors[] = new Competitor[]{human, cat, robot};
 
+        boolean pass = true;
+       for(Competitor competitor : competitors){
+           for(Obstacle obstacle : obstacles){
+               obstacle.overcome(competitor);
+           }
+       }
         System.out.println("-------------------------------------------------------");
     }
 
