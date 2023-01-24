@@ -1,4 +1,6 @@
-import java.lang.reflect.Array;
+import phonebook.PhoneDirectory;
+import phonebook.Record;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -6,7 +8,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("------------------------countOccurance-------------------------");
+        System.out.println("------------------------ countOccurance -------------------------");
         List <String> strList = new ArrayList();
         strList.add("qwer1");
         strList.add("ytr");
@@ -14,10 +16,10 @@ public class Main {
         strList.add("qwer");
         strList.add("xdf");
         countOccurance(strList, "qwer");
-        System.out.println("---------------------------toList------------------------------");
+        System.out.println("--------------------------- toList ------------------------------");
         Integer [] arr = new Integer[] { 1, 2, 3 };
         toList(arr);
-        System.out.println("-------------------------findUnique----------------------------");
+        System.out.println("------------------------- findUnique ----------------------------");
         List <Integer> intList = new ArrayList();
         intList.add(12);
         intList.add(13);
@@ -29,7 +31,7 @@ public class Main {
         intList.add(15);
         findUnique(intList);
 
-        System.out.println("------------------------calcOccurance--------------------------");
+        System.out.println("------------------------ calcOccurance --------------------------");
         List <String> linkedList = new LinkedList<>();
         linkedList.add("cat");
         linkedList.add("dog");
@@ -51,7 +53,7 @@ public class Main {
         linkedList.add("monkey");
         calcOccurance(linkedList);
 
-        System.out.println("------------------------findOccurance--------------------------");
+        System.out.println("------------------------ findOccurance --------------------------");
         linkedList.add("cat");
         linkedList.add("dog");
         linkedList.add("duck");
@@ -71,6 +73,26 @@ public class Main {
         linkedList.add("dog");
         linkedList.add("monkey");
         findOccurance(linkedList);
+
+        System.out.println("------------------------ PHONE DIRECTORY ------------------------");
+        List <Record> recordList = new LinkedList<>();
+        recordList.add(new Record("Oleh", "+380981234323"));
+        recordList.add(new Record("Oleh", "+380981234323"));
+        recordList.add(new Record("Ira", "+380981234323"));
+        recordList.add(new Record("Oleh", "+380969696123"));
+        recordList.add(new Record("Ira", "+380980055234"));
+        recordList.add(new Record("Denys", "+380631235698"));
+        recordList.add(new Record("Maria", "+380502249845"));
+
+        PhoneDirectory phoneDirectory = new PhoneDirectory(recordList);
+        phoneDirectory.add("Oleh", "+380981234300");
+        phoneDirectory.add("Sveta", "+380937774300");
+        phoneDirectory.find("Oleh");
+        phoneDirectory.find("Sveta");
+        phoneDirectory.find("Kostia");
+        phoneDirectory.findAll("Oleh");
+        phoneDirectory.findAll("Sveta");
+        phoneDirectory.findAll("Kostia");
     }
 
     public static int countOccurance(List<String> lists, String str){
