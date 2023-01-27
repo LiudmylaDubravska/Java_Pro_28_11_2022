@@ -1,9 +1,9 @@
 public class FileData {
     private String fileName;
-    private byte fileSize;
+    private long fileSize;
     private String filePath;
 
-    public FileData(String fileName, byte fileSize, String filePath) {
+    public FileData(String fileName, long fileSize, String filePath) {
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.filePath = filePath;
@@ -17,11 +17,11 @@ public class FileData {
         this.fileName = fileName;
     }
 
-    public byte getFileSize() {
+    public long getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(byte fileSize) {
+    public void setFileSize(long fileSize) {
         this.fileSize = fileSize;
     }
 

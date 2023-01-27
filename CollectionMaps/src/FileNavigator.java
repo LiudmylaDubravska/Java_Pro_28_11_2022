@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FileNavigator {
     Map<String, List<FileData>> fileNavigator = new HashMap<>();
@@ -55,11 +52,37 @@ public class FileNavigator {
         fileNavigator.remove(filePath);
     }
 
-    public void  filterBySize (Byte size){
-
+    public List<FileData>   filterBySize (long size){
+        List<FileData> result = new ArrayList<>();
+        Collection <List <FileData>> fileDataCollections = fileNavigator.values();
+        for (List<FileData> fileDataCollection: fileDataCollections) {
+            for (FileData fileData: fileDataCollection) {
+                if (fileData.getFileSize() <= size){
+                    result.add(fileData);
+                }
+            }
+        }
+        System.out.println(result);
+        return result;
     }
-    public void  sortBySize(){
-
+    public List<FileData>  sortBySize(){
+        List<FileData> result = new ArrayList<>();
+        Collection <List <FileData>> fileDataCollections = fileNavigator.values();
+        for (List<FileData> fileDataCollection: fileDataCollections) {
+            result.addAll(fileDataCollection);
+        }
+        Collections.sort(result, new Comparator<FileData>() {
+            @Override
+            public int compare(FileData o1, FileData o2) {
+                if(o1.getFileSize() > o2.getFileSize()){
+                    return 1;
+                } else if(o1.getFileSize() < o2.getFileSize()) {
+                    return -1;
+                } else return 0;
+            }
+        });
+        System.out.println(result);
+        return result;
     }
     @Override
     public String toString() {
