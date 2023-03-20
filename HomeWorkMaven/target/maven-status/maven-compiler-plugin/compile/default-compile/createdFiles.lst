@@ -1,0 +1,6 @@
+FileLoggerConfigurationLoader.class
+Main.class
+FileMaxSizeReachedException.class
+FileLoggerConfiguration.class
+LoggingLevel.class
+FileLogger.class
