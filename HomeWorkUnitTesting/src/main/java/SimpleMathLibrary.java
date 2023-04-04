@@ -18,7 +18,7 @@ public class SimpleMathLibrary {
         int find4 = -1;
         int sizeNew = 0;
         int[] result = null;
-        for (int i = size - 1; i > 1; i--) {
+        for (int i = size - 1; i > -1; i--) {
             if (arr[i] == 4) {
                 find4 = i + 1;
                 sizeNew = size - find4;
@@ -36,10 +36,11 @@ public class SimpleMathLibrary {
             }
 
         }
+        System.out.println("");
         return result;
     }
 
-    public boolean isArrayHave1or4(int[] arr) {
+    public boolean isArrayHave1and4(int[] arr) {
         boolean result = false;
         int size = arr.length;
         boolean find4 = false;

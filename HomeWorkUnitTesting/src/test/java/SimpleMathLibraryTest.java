@@ -33,8 +33,66 @@ public class SimpleMathLibraryTest {
     }
 
     @Test
-    void verifyArrayAfter4(){}
+    void verifyArrayAfter4(){
+        SimpleMathLibrary simpleMathLibrary = new SimpleMathLibrary();
+        int[] arr = {1,2,3,4,5,3,2,1,4,6,3};
+        int[] result = simpleMathLibrary.arrayAfter4(arr);
+        Assertions.assertArrayEquals(result ,  new int[] {6, 3});
+        int[] arr1 = {4,2,3,5,3,2,1,6,3};
+        result = simpleMathLibrary.arrayAfter4(arr1);
+        Assertions.assertArrayEquals(result, new int[] {2,3,5,3,2,1,6,3});
+        int[] arr2 = {9,2,3,5,3,2,1,6,4};
+        result = simpleMathLibrary.arrayAfter4(arr2);
+        Assertions.assertArrayEquals(result, new int[] {});
+    }
 
     @Test
-    void verifyIsArrayHave1or4(){}
+    public void verifyArrayAfter4ThrowsException() {
+        SimpleMathLibrary simpleMathLibrary = new SimpleMathLibrary();
+        int[] arr3 = {1,2,3,5,3,2,1,6,3};
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            simpleMathLibrary.arrayAfter4(arr3);
+        });
+        String expectedMessage = "There is no 4 in the array!";
+        String actualMessage = exception.getMessage();
+        Assertions.assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    void verifyIsArrayHave1and4(){
+        SimpleMathLibrary simpleMathLibrary = new SimpleMathLibrary();
+        int[] arr = {1,2,3,4,5,3,2,1,4,6,3};
+        boolean result = simpleMathLibrary.isArrayHave1and4(arr);
+        Assertions.assertTrue(result);
+
+        int[] arr1 = {2,3,4,5,3,2,1,4,6,3,1};
+        result = simpleMathLibrary.isArrayHave1and4(arr1);
+        Assertions.assertTrue(result);
+
+        int[] arr2 = {4,5,3,2,1,4,6,3,1};
+        result = simpleMathLibrary.isArrayHave1and4(arr2);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void verifyIsArrayHave1and4ThrowsException() {
+        SimpleMathLibrary simpleMathLibrary = new SimpleMathLibrary();
+        int[] arr = {1,2,3,5,3,2,1,6,3};
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            simpleMathLibrary.isArrayHave1and4(arr);
+        });
+        String expectedMessage = "There is no 4 in the array";
+        String actualMessage = exception.getMessage();
+        Assertions.assertTrue(actualMessage.contains(expectedMessage));
+
+        int[] arr1 = {2,3,4,5,3,2,6,3};
+        exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            simpleMathLibrary.isArrayHave1and4(arr1);
+        });
+        expectedMessage = "There is no 1 in the array";
+        actualMessage = exception.getMessage();
+        Assertions.assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+
 }
