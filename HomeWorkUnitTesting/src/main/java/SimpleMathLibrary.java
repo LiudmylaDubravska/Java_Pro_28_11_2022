@@ -57,12 +57,6 @@ public class SimpleMathLibrary {
                 break;
             }
         }
-        if (find1 == false) {
-            throw new RuntimeException("There is no 1 in the array");
-        }
-        if (find4 == false) {
-            throw new RuntimeException("There is no 4 in the array");
-        }
         return result;
     }
 }
