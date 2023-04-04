@@ -18,7 +18,7 @@ public class SimpleMathLibraryTest {
     }
 
     @Test
-    void Minus() {
+    void verifyMinus() {
         SimpleMathLibrary simpleMathLibrary = new SimpleMathLibrary();
 
         Double result = simpleMathLibrary.minus(10.2, -12.5);
@@ -31,4 +31,10 @@ public class SimpleMathLibraryTest {
         Assertions.assertTrue(result.equals(-300.0));
 
     }
+
+    @Test
+    void verifyArrayAfter4(){}
+
+    @Test
+    void verifyIsArrayHave1or4(){}
 }
