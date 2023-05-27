@@ -14,6 +14,15 @@ public class Main {
         // знает и не зависит от конкретных классов строителей и продуктов.
         Car car = builder.getResult();
         System.out.println("Car built:\n" + car.getCarType());
+        System.out.println();
+        director.constructCityCar(builder);
+        car = builder.getResult();
+        System.out.println("Car built:\n" + car.getCarType());
+        System.out.println();
+        director.constructSUV(builder);
+        car = builder.getResult();
+        System.out.println("Car built:\n" + car.getCarType());
+        System.out.println();
 
     }
 }
